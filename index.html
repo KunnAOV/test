@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Nhận Mod By Kunn AOV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('BG-login.png'); /* Nền tùy chỉnh */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.9); /* Nền trắng với độ trong suốt */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-container img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%; /* Bo tròn logo */
+            margin-right: 10px;
+        }
+
+        .logo-container img:last-child {
+            margin-right: 0;
+        }
+
+        .logo-container span {
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+            animation: colorChange 3s infinite; /* Thêm animation để đổi màu liên tục */
+        }
+
+        @keyframes colorChange {
+            0% { color: #ff0000; } /* Màu đỏ */
+            25% { color: #00ff00; } /* Màu xanh lá cây */
+            50% { color: #0000ff; } /* Màu xanh dương */
+            75% { color: #ff00ff; } /* Màu tím */
+            100% { color: #ff0000; } /* Màu đỏ trở lại */
+        }
+
+        .login-container h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .login-container button {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            background-color: #007bff;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Hiệu ứng đèn LED chạy xung quanh viền */
+        @keyframes ledBorder {
+            0% {
+                border-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet) 1;
+            }
+            100% {
+                border-image: linear-gradient(405deg, red, orange, yellow, green, blue, indigo, violet) 1;
+            }
+        }
+
+        .main-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: #000; /* Nền đen cho nội dung bên trong */
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            margin: 10px auto;
+            position: relative;
+            border: 5px solid transparent;
+            animation: ledBorder 3s linear infinite; /* Thêm animation */
+        }
+
+        .main-container .logo-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 80px; /* Khoảng cách giữa các logo */
+            margin-bottom: 20px;
+        }
+
+        .main-container img.logo-clickable {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%; /* Bo tròn logo */
+            cursor: pointer;
+        }
+
+        .main-container a {
+            text-decoration: none;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #e1306c;
+        }
+
+        .main-container p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Thông báo chào mừng và yêu cầu nhập key -->
+    <div id="login-container" class="login-container">
+        <div class="logo-container">
+            <img src="Logo.png" alt="Logo"> <!-- Đường dẫn tới logo -->
+            <span>Kunn AOV</span>
+        </div>
+        <h1>CHÀO MỪNG</h1>
+        <b>Kunn AOV</b>
+        <p>Vui lòng nhập key để tiếp tục:</p>
+        <input type="text" id="key-input" placeholder="NHẬP KEY TẠI ĐÂY♥️">
+        <button onclick="checkKey()">Xác nhận</button>
+        <p>Chưa Có Key Nhấn Vào Đây:</p>
+        <button onclick="window.location.href='https://dilink.net/DxkqR';">Get Link Key1</button>
+        <p>Hoặc</p>
+        <button onclick="window.location.href='https://dilink.net/o3NLvEIW';">Get Link Key2</button>
+        <p>Mn Có Nhu Cầu Mua Mod Theo Ý Muốn LH Zalo</p>
+        <button onclick="window.location.href='https://zalo.me/0332673782';">Zalo</button>
+        <p id="error-message" class="error"></p>
+    </div>
+
+    <!-- Nội dung trang web -->
+    <div id="main-container" class="main-container">
+        <!-- Thêm hai logo với chức năng nhấn vào nằm cùng một hàng ngang -->
+        <div class="logo-row">
+            <img src="Logo.png" alt="Logo" class="logo-clickable" onclick="window.location.href='https://www.youtube.com/@kunn206';"> <!-- Logo đầu tiên -->
+            <img src="Logo2.png" alt="Logo2" class="logo-clickable" onclick="window.location.href='https://www.youtube.com/@Ban.to..';"> <!-- Logo thứ hai -->
+        </div>
+
+        <b>Kunn AOV x BAN TÔ MOD</b>
+        <p>____________________________________________________________</p>
+        <b>Tổng Hợp Pack Skin và Mod Chế</b>
+        <p>____________________________________________________________</p>
+        <p>Allain Ngạo Hổ Hàn Đao - Kunn AOV</p>
+        <a href="https://dilink.net/5jEA4B" class="s">Nhận</a>
+        <p>____________________________________________________________</p>
+        <p>Pack 80 Skin - Kunn AOV </p>
+        <a href="https://dilink.net/eCRR" class="s1">Nhận</a>
+        <p>____________________________________________________________</p>
+        <p>Pack Skin Anime - Kunn AOV </p>
+        <a href="https://dilink.net/zhvwTl" class="s2">Nhận</a>
+        <p>____________________________________________________________</p>
+        <p>Pack 30 Skin - Kunn AOV</p>
+        <a href="https://dilink.net/xy6TqtECa" class="s3">Nhận</a>
+        <p>____________________________________________________________</p>
+        <p>Slim Thỏ Bảy Màu Sáng Đậm - BAN TÔ MOD</p>
+        <a href="https://dilink.net/oXB8rx" class="s4">Nhận</a>
+        <p>____________________________________________________________</p>
+        <p>Nakroth TNVT Sáng Đậm Unti Có Nhạc - BAN TÔ MOD</p>
+        <a href="https://dilink.net/YXKurLr" class="s5">Nhận</a>
+        <p>____________________________________________________________</p>
+        <p>Yan Tanjiro Sáng Đậm Unti Có Nhạc - BAN TÔ MOD</p>
+        <a href="https://dilink.net/XX-u1QvwG" class="s6">Nhận</a>
+        <p>____________________________________________________________</p>
+        <p>Allain Kirito V2 Sáng Đậm Unti Có Nhạc - BAN TÔ MOD</p>
+        <a href="https://dilink.net/iF3nWx" class="s7">Nhận</a>
+        <p>____________________________________________________________</p>
+        <p>kundz - BAN TÔ MOD</p>
+        <a href="https://dilink.net/XfLgA" class="s8">Nhận</a>
+        <p>____________________________________________________________</p>
+        <p>kundzs1</p>
+        <a href="https://dilink.net/XfLgA" class="s9">Nhận</a>
+        <p>____________________________________________________________</p>
+        <p>Kundzzzzz</p>
+        <a href="https://dilink.net/XfLgA" class="s10">Nhận</a>
+    </div>
+
+    <script src="key.js"></script>
+    <script>
+        function checkKey() {
+            const keyInput = document.getElementById('key-input').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (keyInput === validKeys.mainKey || 
+                keyInput === validKeys.secondaryKey ||
+                keyInput === validKeys.mainKey2 || 
+                keyInput === validKeys.mainKey3) {
+                document.getElementById('login-container').style.display = 'none';
+                document.getElementById('main-container').style.display = 'flex';
+                errorMessage.textContent = '';
+            } else {
+                errorMessage.textContent = 'Key không đúng hoặc đã hết hạn, vui lòng thử lại.';
+            }
+        }
+    </script>
+</body>
+</html>
